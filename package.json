@@ -1,0 +1,46 @@
+{
+  "name": "styroboy-properties-operations-console",
+  "productName": "Styroboy Properties Operations Console",
+  "version": "1.0.0",
+  "description": "Rental operations console (occupancy, rent collection, utilities, maintenance, tenant statements) shared over the local network.",
+  "main": "main.js",
+  "private": true,
+  "author": "Styroboy Properties <office@styroboyproperties.example.com>",
+  "homepage": "https://styroboyproperties.example.com",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "server": "node server.js",
+    "dist": "electron-builder",
+    "dist:dir": "electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.styroboyproperties.opsconsole",
+    "productName": "Styroboy Properties Operations Console",
+    "files": [
+      "main.js",
+      "preload.js",
+      "server.js",
+      "app/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.business"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Office",
+      "maintainer": "Styroboy Properties <office@styroboyproperties.example.com>"
+    }
+  }
+}
